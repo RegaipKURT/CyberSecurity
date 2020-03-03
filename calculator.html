@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+        <script type="text/javascript">
+            function calculateInterest() {
+                var y = 0;
+                var p = 0;
+                var r = 0;
+                var interest = 0;
+                
+                document.getElementById("res").innerHTML = `${alert(" Hacked by Pars")}`;
+                y = parseInt(document.getElementById("yrs").value);
+                p = parseInt(document.getElementById("prc").value);
+                r = parseInt(document.getElementById("iRate").value);
+                interest = (p*y*r)/100;
+                document.getElementById("res").textContent = "Result: "+interest.toString();
+            };
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Interest Calculator</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <div class="form-group">
+                            <label class="form-group">Principal</label>
+                            <input id="prc" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group">Years</label>
+                            <input id="yrs" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-group">Interest Rate</label>
+                            <input id="iRate" class="form-control" type="text">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="calculateInterest()">Calculate</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 id="res"></h1>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
