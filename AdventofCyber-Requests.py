@@ -2,7 +2,7 @@ import requests
 import sys
 url = "http://10.10.169.100:3000/"
 
-#sonucu daha sonra strşnge çevirmnek yerine direk string tanımlayıp atama yapılırsa daha kısa olur.
+#sonucu daha sonra stringe çevirmnek yerine direk string tanımlayıp atama yapılırsa daha kısa olur.
 liste = [] 
 
 try:
