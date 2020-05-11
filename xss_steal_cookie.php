@@ -15,9 +15,9 @@
         kullanıcının tarayıcısında o an sayfada kayıtlı olan cookileri almış oluruz!
 
 
-        Aslında olarak bulunduğumuz dizindeki bu php dosyasına xss açıklı yerden yönlendirme yapıyoruz.
-        bu php dosyası da kendine gelen isteklerden get ile c olarak ayarlanan kısmı alıyor.
-        c kısmını ise xss açıklı9 sitedeki document.cookie ile alıyoruz.
+        Aslında bulunduğumuz dizindeki bu php dosyasına xss açıklı yerden yönlendirme yapıyoruz sadece.
+        bu php dosyası da kendine gelen isteklerden get metodu ile c olarak ayarlanan kısmı alıyor.
+        c kısmını ise xss açıklı sitedeki document.cookie ile alıyoruz.
         dolayısıyla o sayfaya kim girmiş ise onun cookileri bize yönlendiriliyor.
         */
 ?>
