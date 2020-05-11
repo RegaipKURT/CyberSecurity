@@ -1,3 +1,10 @@
+"""
+Advent of Scyber isimli tryhackme odasında bir challenge için yazılan bu kod ile
+
+bir site içinden gelen değerler ile başka bir sayfaya gidilip o sayfanın içeriği alınıyor.
+get isteği yapıp sayfadaki içeriğe göre yeni url'ye get isteği atan çok basit bir kod örneği.
+"""
+
 import requests
 import sys
 url = "http://10.10.169.100:3000/"
