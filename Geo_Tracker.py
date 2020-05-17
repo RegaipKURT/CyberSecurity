@@ -31,5 +31,3 @@ if __name__ == "__main__":
 	print(ip + " için sonuçlar:")
 	for i, j in enumerate(sonuc):
 		print(str(j.upper()) + ": " + str(sonuc[j]))
-		
-	
