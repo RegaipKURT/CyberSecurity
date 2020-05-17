@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
 	#ip adresini almak için argüman oluşturalım
 	parser = argparse.ArgumentParser()
-	parser.add_argument("-i", "--ip_address", help="Konumu bulunmak istenen ip adresi")
+	parser.add_argument("-i", "--ip_address", help="Konumu bulunmak site veya istenen ip adresi")
 	args = parser.parse_args()
 	
 	#eğer ip veya argüman verilmemişse yardım mesajı yazdıralım ve çıkalım.
