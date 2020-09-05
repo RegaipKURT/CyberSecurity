@@ -54,8 +54,6 @@ for i in xss.splitlines():
     url = target + str(i)
     
     try:
-        if i == "":
-            continue
         sonuc = requests.get(url, headers=cookie, timeout=2) # 2 saniye zamanaşımı belirledik!
         if i in str(sonuc.content):
         # websitesi içeriğinde gönderdiğimiz değerler varsa muhtemelen XSS açığı bulunuyordur! 
