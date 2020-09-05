@@ -19,7 +19,7 @@ DWVA uygulamasında çeşitli güvenlik düzeylerinde test edilerek oluşturulmu
 Aracı kullanarak doğacak hukuki sorumluluğu kendi üzerinize almış bulunursunuz!
 """
 
-usg = """\npython3 reflected_xss_kontrol.py -t 192.168.1.2 -f xss_vectors.txt -c 'cookies'\npython3 reflected_xss_kontrol.py -t google.com -f xss_vectors.txt -c 'session=example_session_id'"""
+usg = """\npython3 reflected_xss_kontrol.py -t 192.168.1.2 -f xss_vectors.txt -c 'cookies'  -r return_address\npython3 reflected_xss_kontrol.py -t google.com -f xss_vectors.txt -c 'session=example_session_id' -r return_address"""
 
 print(colored(uyari, color="red"), colored("\nUsage:" + usg + "\n", color="yellow"))
 
