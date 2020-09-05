@@ -19,7 +19,7 @@ DWVA uygulamasında çeşitli güvenlik düzeylerinde test edilerek oluşturulmu
 Aracı kullanarak doğacak hukuki sorumluluğu kendi üzerinize almış bulunursunuz!
 """
 
-usg = """\npython3 dizinbulucu.py -t 192.168.1.2 -f xss_vectors.txt -c 'cookies'\npython3 dizinbulucu.py -t google.com -f xss_vectors.txt -c 'session=example_session_id'"""
+usg = """\npython3 reflected_xss_kontrol.py -t 192.168.1.2 -f xss_vectors.txt -c 'cookies'\npython3 reflected_xss_kontrol.py -t google.com -f xss_vectors.txt -c 'session=example_session_id'"""
 
 print(colored(uyari, color="red"), colored("\nUsage:" + usg + "\n", color="yellow"))
 
@@ -30,7 +30,7 @@ parser.add_argument('-f', '--filename', help="XSS Vectors file", required=True)
 parser.add_argument("-c", "--cookie", help="Cookies")
 args = parser.parse_args()
 
-#http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=reg&user_token=86c41973894db422311a049dab319b72#
+#http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=
 
 xss = open(args.filename, "r")
 target = args.target
