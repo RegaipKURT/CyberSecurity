@@ -36,7 +36,7 @@ for i in icerik.splitlines():
     else:
         url = target + "/" + i
     try:
-        sonuc = requests.get(url, timeout=2) # 2 saniye zamanaşımı belirledik!
+        sonuc = requests.get(url, headers=cookie, timeout=2) # 2 saniye zamanaşımı belirledik!
         if "200" in str(sonuc.status_code):
         #Sadece 200 dönen sonuçları göstermek doğru değil başka hata kodları ile de dizinler bulunabilir! 
         # Sadece basit bir örnek yaptığmız için başka hata kodlarını kullanmadık.
