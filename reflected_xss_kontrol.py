@@ -59,13 +59,12 @@ for i in xss.splitlines():
         sonuc = requests.get(url, headers=cookie, timeout=2) # 2 saniye zamanaşımı belirledik!
         if i in str(sonuc.content):
         # websitesi içeriğinde gönderdiğimiz değerler varsa muhtemelen XSS açığı bulunuyordur! 
-        # hata kodları için: https://www.restapitutorial.com/httpstatuscodes.html
             print("Muhtemel XSS Açığı Bulundu: ", url, sep="\t", end="\t")
             print("Değerler: " + i) 
             sayi += 1
     except requests.exceptions.ConnectTimeout: # zaman aşımı hatası gerçekleşirse
         print("Zamanaşımı Hatası!")
-    except requests.exceptions.ConnectionError: 
+    except requests.exceptions.ConnectionError: #bağlantı hatası gerçekleşirse
         print("URL Bulunamadı veya Ulaşılamıyor! ")
         sys.exit(0)
 
