@@ -1,12 +1,17 @@
 """
 Bu araç basit ve deneme/öğrenme amaçlı yazılmış bir araçtır!
-Sadece get isteği gönderilen URL'ler üzerinde çalışır!
+Sadece get isteği gönderilen URL'ler üzerinde çalışır! 
 """
 
 from termcolor import colored
 import requests
 import argparse
 import sys
+from pyfiglet import figlet_format
+import time
+
+print(colored(figlet_format("XSS Controller"), color="blue"))
+time.sleep(1)
 
 uyari = """
 Bu aracın bulduğu sonuçlar tam olarak doğru olmayabilir!
@@ -22,6 +27,8 @@ Aracı kullanarak doğacak hukuki sorumluluğu kendi üzerinize almış bulunurs
 usg = """\npython3 reflected_xss_kontrol.py -t 192.168.1.2 -f xss_vectors.txt -c 'cookies'  -r return_address\npython3 reflected_xss_kontrol.py -t google.com -f xss_vectors.txt -c 'session=example_session_id' -r return_address"""
 
 print(colored(uyari, color="red"), colored("\nUsage:" + usg + "\n", color="yellow"))
+time.sleep(1)
+
 
 parser = argparse.ArgumentParser(usage=usg)
 
