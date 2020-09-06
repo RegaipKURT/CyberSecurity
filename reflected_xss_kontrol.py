@@ -24,7 +24,7 @@ DWVA uygulamasında çeşitli güvenlik düzeylerinde test edilerek oluşturulmu
 Aracı kullanarak doğacak hukuki sorumluluğu kendi üzerinize almış bulunursunuz!
 """
 
-usg = """\npython3 reflected_xss_kontrol.py -t 192.168.1.2 -f xss_vectors.txt -c 'cookies'  -r return_address\npython3 reflected_xss_kontrol.py -t google.com -f xss_vectors.txt -c 'session=example_session_id' -r return_address"""
+usg = """\npython3 reflected_xss_kontrol.py -u 192.168.1.2 -f xss_vectors.txt -c 'cookies'  -r return_address -t timeout_seconds\npython3 reflected_xss_kontrol.py -u google.com -f xss_vectors.txt -c 'session=example_session_id' -r return_address -t timeout_seconds"""
 
 print(colored(uyari, color="red"), colored("\nUsage:" + usg + "\n", color="yellow"))
 time.sleep(1)
@@ -32,20 +32,22 @@ time.sleep(1)
 
 parser = argparse.ArgumentParser(usage=usg)
 
-parser.add_argument('-t', '--target', help="Target URL", required=True)
+parser.add_argument('-u', '--url', help="Target URL", required=True)
 parser.add_argument('-f', '--filename', help="XSS Vectors file", required=True)
 parser.add_argument("-c", "--cookie", help="Cookies")
 parser.add_argument("-r", "--returned_addrres", help="Return back address for find xss content")
+parser.add_argument("-t", "--timeout", help="Timeout in seconds")
 args = parser.parse_args()
 
 #http://127.0.0.1/dvwa/vulnerabilities/xss_r/?name=
 
 xss = open(args.filename, "r")
-target = args.target
+target = args.url
 xss = xss.read()
 returned = args.returned_addrres
 cookie = {"Cookie":""}
 
+timeout = int(args.timeout) if args.timeout != None else 2
 
 if target.startswith("http://") or target.startswith("https://"):
     pass
@@ -74,9 +76,9 @@ for i in xss.splitlines():
     try:
         #geri dönüş başka bir sayfaya mı yapılıyor yoksa aynı sayfada mı kıntrol edip ona göre sonuc belirleyelim.
         if args.returned_addrres == None:
-            sonuc = requests.get(url, headers=cookie, timeout=2) # 2 saniye zamanaşımı belirledik!
+            sonuc = requests.get(url, headers=cookie, timeout=timeout) # default 2 saniye zamanaşımı belirledik!
         else:
-            sonuc = requests.get(returned, headers=cookie, timeout=2) # 2 saniye zamanaşımı belirledik!
+            sonuc = requests.get(returned, headers=cookie, timeout=timeout) # default 2 saniye zamanaşımı belirledik!
         
         if i in str(sonuc.content):
         # websitesi içeriğinde gönderdiğimiz değerler varsa muhtemelen XSS açığı bulunuyordur! 
