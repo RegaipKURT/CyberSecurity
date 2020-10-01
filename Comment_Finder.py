@@ -3,6 +3,12 @@ from bs4 import Comment
 import requests
 import argparse
 
+"""
+A simple python code to find commentlines on a webpage
+requirements --> bs4, lxml
+For install required libraries run this command: pip install bs4 lxml 
+"""
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-o", "--output", help="Write founded comments to an output file", required=False)
 parser.add_argument("-t", "--target", help="Webiste address to find comments inside its code", required=True)
