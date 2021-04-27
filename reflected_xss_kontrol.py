@@ -21,7 +21,6 @@ bulunup bulunmadığına bakarak karar vermek üzerine kurulmuştur.
 
 DWVA uygulamasında çeşitli güvenlik düzeylerinde test edilerek oluşturulmuştur!
 
-Aracı kullanarak doğacak hukuki sorumluluğu kendi üzerinize almış bulunursunuz!
 """
 
 usg = """\npython3 reflected_xss_kontrol.py -u 192.168.1.2 -f xss_vectors.txt -c 'cookies'  -r return_address -t timeout_seconds\npython3 reflected_xss_kontrol.py -u google.com -f xss_vectors.txt -c 'session=example_session_id' -r return_address -t timeout_seconds"""
